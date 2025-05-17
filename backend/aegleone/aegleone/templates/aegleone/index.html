@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AegleOne</title>
+    <link rel="stylesheet" href="{% static 'aegleone/styles.css' %}" />
+    <script src="{% static 'js/scripts.js' %}"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>AegleOne APIs List</h1>
+    </header>
+    <main>
+      <section id="content">
+        <ul>
+          {% for item in api_list %}
+            <li>
+              <a href="{{ item.url }}">{{ item.name }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2025 AegleOne. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

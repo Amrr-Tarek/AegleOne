@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --main-color: #1679dd;
+    --accent-color: #f5f7fa;
+    --hover-color: #0d4e96;
+    --text-color: #222;
+    --link-color: #2dccd4;
+    --link-hover: #1f76da;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: rgb(210, 224, 241);
+}
+
+header,
+footer {
+    background-color: var(--main-color);
+    width: 100%;
+    padding: 1em;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'Playfair Display', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--accent-color);
+    padding: 2em 3em;
+    border-radius: 1em;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.13);
+}
+
+ul {
+    list-style-type: none;
+}
+
+li a {
+    text-decoration: none;
+    color: var(--link-color);
+    /* Aesthetic blue (tailwind blue-600) */
+    transition: all 0.3s ease;
+}
+
+li a:hover {
+    text-decoration: underline;
+    color: var(--link-hover);
+}
