@@ -1,19 +1,4 @@
 services:
-  db:
-    image: postgres:latest
-    container_name: postgres_db
-    env_file:
-      - backend/.env
-    volumes:
-      - backend_db:/var/lib/postgresql/data
-    healthcheck:
-      test: [ "CMD-SHELL", "sh -c 'pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}'" ]
-      interval: 30s
-      timeout: 10s
-      retries: 5
-
-    networks:
-      - app-network
 
   backend:
     build:
@@ -24,10 +9,6 @@ services:
       - backend_static:/app/staticfiles
     ports:
       - "8000:8000"
-    depends_on:
-      db:
-        condition: service_healthy
-        restart: true
     env_file:
       - backend/.env
     networks:
@@ -48,8 +29,6 @@ services:
 
 volumes:
   backend_static:
-  backend_db:
-
 
 networks:
   app-network:
