@@ -1,1 +1,13 @@
 *.sh text eol=lf
+
+frontend/aegleone/windows/* linguist-vendored
+frontend/aegleone/linux/* linguist-vendored
+frontend/aeglone/ios/Runner*/* linguist-vendored
+frontend/aegleone/macos/Runner*/* linguist-vendored
+frontend/aegleone/android/app/src/main/kotlin/com/example/aegleone/* linguist-vendored
+
+*.cpp linguist-vendored
+*.h linguist-vendored
+*.txt linguist-vendored
+*.swift linguist-vendored
+*.kt linguist-vendored
