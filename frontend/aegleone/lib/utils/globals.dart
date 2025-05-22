@@ -1,4 +1,6 @@
 // import 'package:flutter/material.dart';
+// utils/globals.dart
+const String apiBaseUrl = 'http://your-django-backend-url';  // Replace with your actual URL
 
 class UserData {
   static String _name = "John Doe";

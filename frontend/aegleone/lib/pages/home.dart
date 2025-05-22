@@ -9,6 +9,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  
+  //   Future<void> _logout() async {
+  //   await secureStorage.delete(key: 'auth_token');
+  //   Navigator.pushReplacementNamed(context, '/login');
+  // }
+
   int _currentIndex = 0;
 
   final List<Widget> _patientPages = [
