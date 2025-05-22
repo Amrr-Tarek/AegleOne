@@ -1,8 +1,7 @@
 from rest_framework import serializers
-from .models import *
-
+from .models import Appointment
 
 class AppointmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Appointment
-        fields = "__all__" # ["id"] + all fields from the model
+        fields = '__all__'
