@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../utils/globals.dart';
+import 'appointments.dart';
+import 'patient_dashboard.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -138,12 +140,10 @@ class _HomePageState extends State<HomePage> {
       navBar = _visitorNav;
     }
 
-    print(pages);
-    print(navBar);
-
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           title: Text(
             "Welcome, ${UserData.name.split(" ").first}",
             style: const TextStyle(
@@ -181,35 +181,35 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class PatientDashboard extends StatelessWidget {
-  const PatientDashboard({super.key});
+// class PatientDashboard extends StatelessWidget {
+//   const PatientDashboard({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.person, // Differentiate genders
-            size: 80,
-            color: Colors.blue,
-          ),
-          SizedBox(height: 20),
-          Text(
-            "Dashboard",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 24,
-            ),
-          ),
-          SizedBox(height: 20),
-          Card(),
-        ],
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return const Center(
+//       child: Column(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         children: [
+//           Icon(
+//             Icons.person, // Differentiate genders
+//             size: 80,
+//             color: Colors.blue,
+//           ),
+//           SizedBox(height: 20),
+//           Text(
+//             "Dashboard",
+//             style: TextStyle(
+//               fontWeight: FontWeight.bold,
+//               fontSize: 24,
+//             ),
+//           ),
+//           SizedBox(height: 20),
+//           Card(),
+//         ],
+//       ),
+//     );
+//   }
+// }
 
 class DoctorDashboard extends StatelessWidget {
   const DoctorDashboard({super.key});
@@ -235,26 +235,6 @@ class DoctorDashboard extends StatelessWidget {
           ),
           SizedBox(height: 20),
           Card(),
-        ],
-      ),
-    );
-  }
-}
-
-class AppointmentsPage extends StatelessWidget {
-  const AppointmentsPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.calendar_month,
-            size: 80,
-            color: Colors.grey,
-          ),
         ],
       ),
     );
