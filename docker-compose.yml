@@ -13,18 +13,18 @@ services:
       - backend/.env
     networks:
       - app-network
-  # web:
-  #   build:
-  #     context: ./frontend
-  #     dockerfile: Dockerfile.web
-  #   volumes:
-  #     - ./frontend/aegleone:/app
-  #   ports:
-  #     - "8080:80" # 80 from the container to 8080 on the host
-  #   depends_on:
-  #     - backend
-  #   networks:
-  #     - app-network
+  web:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.web
+    volumes:
+      - ./frontend/aegleone:/app
+    ports:
+      - "8080:80" # 80 from the container to 8080 on the host
+    depends_on:
+      - backend
+    networks:
+      - app-network
 
 volumes:
   backend_static:
