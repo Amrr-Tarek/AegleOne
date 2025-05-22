@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:aegleone/utils/globals.dart';  // Adjust import based on your package name
+import 'package:aegleone/utils/globals.dart'; // Adjust import based on your package name
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -19,6 +19,28 @@ class _LoginPageState extends State<LoginPage> {
 
   Future<void> _login() async {
     if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save(); // Save form fields
+      // Set UserData.name to username
+      try {
+        UserData.name = _usernameController.text;
+        // Set userType based on username
+        if (_usernameController.text.toLowerCase() == 'admin') {
+          UserData.userType = 'admin';
+        } else if (_usernameController.text.toLowerCase() == 'patient') {
+          UserData.userType = 'patient';
+        } else if (_usernameController.text.toLowerCase() == 'doctor') {
+          UserData.userType = 'doctor';
+        } else if (_usernameController.text.toLowerCase() == 'pharmacy') {
+          UserData.userType = 'pharmacy';
+        } else {
+          UserData.userType = 'visitor';
+        }
+      } catch (e) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('User data error: $e')),
+        );
+        return;
+      }
       setState(() {
         _isLoading = true;
       });
@@ -32,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
         //     'password': _passwordController.text,
         //   }),
         // );
-        
+
         // response.statusCode == 200
         if (true) {
           // final data = jsonDecode(response.body);
@@ -76,6 +98,16 @@ class _LoginPageState extends State<LoginPage> {
                   }
                   return null;
                 },
+                onSaved: (value) {
+                  // Set name only, not userType
+                  if (value != null) {
+                    try {
+                      UserData.name = value;
+                    } catch (e) {
+                      // Optionally handle name validation error
+                    }
+                  }
+                },
               ),
               const SizedBox(height: 16),
               TextFormField(
@@ -117,6 +149,7 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
+
   @override
   void dispose() {
     _usernameController.dispose();

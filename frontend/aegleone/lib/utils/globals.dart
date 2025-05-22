@@ -1,6 +1,7 @@
 // import 'package:flutter/material.dart';
 // utils/globals.dart
-const String apiBaseUrl = 'http://your-django-backend-url';  // Replace with your actual URL
+const String apiBaseUrl =
+    'http://your-django-backend-url'; // Replace with your actual URL
 
 class UserData {
   static String _name = "John Doe";
@@ -37,6 +38,16 @@ class UserData {
       throw const FormatException("Invalid Email!");
     } else {
       _email = value;
+    }
+  }
+
+  static set userType(String value) {
+    const allowedTypes = ["patient", "doctor", "admin", "pharmacy", "visitor"];
+
+    if (!allowedTypes.contains(value)) {
+      throw const FormatException("Invalid User Type!");
+    } else {
+      _userType = value;
     }
   }
 
