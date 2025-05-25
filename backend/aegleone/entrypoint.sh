@@ -7,7 +7,7 @@ python manage.py migrate
 # echo "Collecting Static Files..."
 # python manage.py collectstatic --noinput
 
-# WARNING: Development server
+# WARNING: Development Server
 # Note: In production, you should use gunicorn
 echo "Starting Server..."
 python manage.py runserver 0.0.0.0:8000
